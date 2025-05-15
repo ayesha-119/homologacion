@@ -36,9 +36,25 @@ def run_matching(master_path, dictionary_path, distributor_path, output_path):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Product Matching Pipeline Runner")
-    parser.add_argument("--master", required=True)
-    parser.add_argument("--dictionary", required=True)
-    parser.add_argument("--distributor", required=True)
-    parser.add_argument("--output", required=True)
+    parser.add_argument("--master", type=str, help="Master file path")
+    parser.add_argument("--dictionary", type=str, help="Dictionary file path")
+    parser.add_argument("--distributor", type=str, help="Distributor file path")
+    parser.add_argument("--output", type=str, help="Output file path")
+    parser.add_argument("--config", type=str, help="Path to YAML config file", default=None)
     args = parser.parse_args()
-    run_matching(args.master, args.dictionary, args.distributor, args.output)
+
+    if args.config:
+        import yaml
+        with open(args.config, 'r') as file:
+            config = yaml.safe_load(file)
+        master = config['master']
+        dictionary = config['dictionary']
+        distributor = config['distributor']
+        output = config['output']
+    else:
+        master = args.master
+        dictionary = args.dictionary
+        distributor = args.distributor
+        output = args.output
+
+    run_matching(master, dictionary, distributor, output)

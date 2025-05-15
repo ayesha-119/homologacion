@@ -27,9 +27,10 @@ product_matching/
 │   ├── validator.py
 │   ├── pipeline.py
 ├── runner.py
+├── setup.py
 ├── config.yaml
 ├── data/
-├── output/
+├── homologacion_results/
 └── README.md
 ```
 
@@ -44,12 +45,11 @@ pip install -r requirements.txt
 
 ### 2. Prepare your `config.yaml`
 ```yaml
-distributor_file: "data/Base homologación Clorox.xlsx"
-master_file: "data/base_homologacion_ml.xlsx"
-master_sheet: "Maestro General"
-master_description_column: "DescripcionProducto"
-dictionary_file: "data/Dictionary.xlsx"
-output_file: "output/matched_clorox.xlsx"
+master: "data/base_homologacion_ml.xlsx"
+dictionary: "data/Dictionary.xlsx"
+distributor: "data/base_homologacion_ml.xlsx"
+output: "homologacion_results/matched_ml_cleaned.xlsx"
+
 ```
 
 ### 3. Run the pipeline
