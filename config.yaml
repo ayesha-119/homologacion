@@ -1,4 +1,4 @@
 master: "data/base_homologacion_ml.xlsx"
 dictionary: "data/Dictionary.xlsx"
-distributor: "data/base_homologacion_ml.xlsx"
-output: "homologacion_results/matched_ml_cleaned.xlsx"
+distributor: "data/Base_homologacion_Alicorp.xlsx"
+output: "homologacion_results/matched_Alicorp.xlsx"
