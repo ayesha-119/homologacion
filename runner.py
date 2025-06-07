@@ -23,6 +23,7 @@ def run_matching(master_path, dictionary_path, distributor_path, output_path):
         "NOMBREPRODUCTODISTRIBUIDOR",
         "Matched Name",
         "Match Score",
+        "CodigoProducto",
         "Exist in the Product Master?",
         "Match Confidence",
         "Size Match",

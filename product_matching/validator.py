@@ -73,3 +73,5 @@ class Validator:
             return "LOW", "⚠ Low confidence. Manual validation needed.", exist_in_master, size_match, cat_match, brand_match_flag
         else:
             return "NO MATCH", "❌ Low score.", exist_in_master, size_match, cat_match, brand_match_flag
+        
+    
