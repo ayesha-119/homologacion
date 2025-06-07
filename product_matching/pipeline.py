@@ -23,6 +23,7 @@ class ProductMatchingPipeline:
         df["Matched Name"] = df["Clean Name"].apply(lambda x: FuzzyMatcher.match_name(x, master_names)[0])
         df["Match Score"] = df["Clean Name"].apply(lambda x: FuzzyMatcher.match_name(x, master_names)[1])
 
+
         results = df.apply(self.validator.validate_row, axis=1)
         (df["Match Confidence"], df["System Observation"],
          df["Exist in the Product Master?"], df["Size Match"],

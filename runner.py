@@ -16,8 +16,23 @@ def run_matching(master_path, dictionary_path, distributor_path, output_path):
     
     pipeline = ProductMatchingPipeline(df_master, category_map)
     df_result = pipeline.process(df_distributor)
-    df_result.to_excel(output_path, index=False)
 
+    # ✅ Select specific columns for output
+    output_columns = [
+        "CODIGODISTRIBUIDOR",
+        "NOMBREPRODUCTODISTRIBUIDOR",
+        "Matched Name",
+        "Match Score",
+        "Exist in the Product Master?",
+        "Match Confidence",
+        "Size Match",
+        "Category Match",
+        "Brand Match",
+        "System Observation"
+    ]
+    df_result[output_columns].to_excel(output_path, index=False)
+
+    # Print summary
     total = len(df_result)
     high = (df_result["Match Confidence"] == "HIGH").sum()
     medium = (df_result["Match Confidence"] == "MEDIUM").sum()
