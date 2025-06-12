@@ -21,6 +21,7 @@ def run_matching(master_path, dictionary_path, distributor_path, output_path):
     output_columns = [
         "CODIGODISTRIBUIDOR",
         "NOMBREPRODUCTODISTRIBUIDOR",
+        "CODIGOPRODUCTODISTRIBUIDOR",
         "Matched Name",
         "Match Score",
         "CodigoProducto",
